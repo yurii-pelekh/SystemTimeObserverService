@@ -6,17 +6,17 @@
 
     public partial class TimeObserver : ServiceBase
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            ServiceBase.Run(new TimeObserver());
+            Run(new TimeObserver());
         }
 
         protected override void OnStart(string[] args)
         {
-            new Thread(this.RunMessagePump).Start();
+            new Thread(RunMessagePump).Start();
         }
 
-        private void RunMessagePump()
+        private static void RunMessagePump()
         {
             Application.Run(new HiddenForm());
         }
@@ -25,6 +25,5 @@
         {
             Application.Exit();
         }
-
     }
 }
