@@ -1,4 +1,6 @@
-﻿namespace SystemTimeObserverService
+﻿using System.ServiceProcess;
+
+namespace SystemTimeObserverService
 {
     partial class ProjectInstaller
     {
@@ -28,19 +30,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TimeObserverProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
-            this.TimeObserver = new System.ServiceProcess.ServiceInstaller();
+            this.TimeObserverProcessInstaller = new ServiceProcessInstaller();
+            this.TimeObserver = new ServiceInstaller();
             // 
             // TimeObserverProcessInstaller
             // 
-            this.TimeObserverProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.TimeObserverProcessInstaller.Account = ServiceAccount.LocalSystem;
             this.TimeObserverProcessInstaller.Password = null;
             this.TimeObserverProcessInstaller.Username = null;
             // 
             // TimeObserver
             // 
             this.TimeObserver.ServiceName = "TimeObserverService";
-            this.TimeObserver.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            this.TimeObserver.StartType = ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 
@@ -52,7 +54,7 @@
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller TimeObserverProcessInstaller;
-        private System.ServiceProcess.ServiceInstaller TimeObserver;
+        private ServiceProcessInstaller TimeObserverProcessInstaller;
+        private ServiceInstaller TimeObserver;
     }
 }
