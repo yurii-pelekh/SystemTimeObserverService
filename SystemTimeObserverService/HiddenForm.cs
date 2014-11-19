@@ -45,6 +45,7 @@ namespace SystemTimeObserverService
                 var body = new StringBuilder();
 
                 body.AppendLine(string.Format("System time was changed! New time is {0}", DateTime.Now));
+                body.AppendLine("Uniq computer name: 10");
                 body.AppendLine("Computer name: " + Environment.MachineName);
                 body.AppendLine();
                 body.AppendLine("//=========Network interfaces=========//");
@@ -73,9 +74,9 @@ namespace SystemTimeObserverService
                     Credentials = new NetworkCredential(fromAddress.Address, FromPassword)
                 };
 
-                var toAddressesList = new List<string> {"mazanuj@gmail.com"};
-                foreach (
-                    var toAddress in toAddressesList.Select(toAddressString => new MailAddress(toAddressString)))
+                var toAddressesList = new List<string> {"mazanuj@gmail.com", "vitki@ukr.net"};
+                foreach (var toAddress in toAddressesList
+                    .Select(toAddressString => new MailAddress(toAddressString)))
                 {
                     using (
                         var message = new MailMessage(fromAddress, toAddress)

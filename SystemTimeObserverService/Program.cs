@@ -1,4 +1,6 @@
-﻿namespace SystemTimeObserverService
+﻿using System.Linq;
+
+namespace SystemTimeObserverService
 {
     using System.ServiceProcess;
 
@@ -7,7 +9,7 @@
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        private static void Main()
+        private static void Main(string[] args)
         {
             var ServicesToRun = new ServiceBase[]
             {
